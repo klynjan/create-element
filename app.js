@@ -36,10 +36,10 @@ function createElement(){
 
     deleteButton.addEventListener('click', () => {
         
-        newLi.remove(newLi);
+        newLi.remove();
 })  
 
-    check.addEventListener('click', () => {
+    newLi.addEventListener('click', () => {
         newLi.classList.toggle('checked');
     })
     
