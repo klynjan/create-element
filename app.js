@@ -1,6 +1,6 @@
 
 const myButton = document.querySelector('#clicker');
-const removeLastItem = document.querySelector('#remove-last');
+
 const myInput = document.querySelector('#my-input');
 const myUl = document.querySelector('#my-list');
 const myLi = document.getElementsByTagName('li')
@@ -10,25 +10,33 @@ myButton.addEventListener('click', () => {
         return false
     }
      const li = createElement();
-     let lastLI = myUl.appendChild(li);   
-     lastLI.className = 'remove-item'
+     myUl.appendChild(li);  
+     
+     
+     
      
 });
 
 function createElement(){
+    //creates LI element
     const newLi = document.createElement('li');
     const text = document.createTextNode(myInput.value);
+
+    //creates checkbox input
+    const check = document.createElement('input');
+    check.type = "checkbox";
+
     newLi.appendChild(text);
+    newLi.appendChild(check);
     myInput.value = '';
+
+    check.addEventListener('click', () => {
+        newLi.classList.toggle('checked');
+    })    
     return newLi;
 }
 
-removeLastItem.addEventListener('click', () => {
-    
-    let child = myUl.getElementsByTagName('li')[0];
-    console.log(child);
-    myUl.removeChild(child)
-}); 
+
 
 
 
